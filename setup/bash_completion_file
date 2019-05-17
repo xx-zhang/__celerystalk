@@ -1,0 +1,512 @@
+
+_celerystalk()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -eq 1 ]; then
+        COMPREPLY=( $( compgen -W '-h --help pause help scan nmap rescan resume db subdomains cancel workspace query report import admin interactive' -- $cur) )
+    else
+        case ${COMP_WORDS[1]} in
+            pause)
+            _celerystalk_pause
+        ;;
+            help)
+            _celerystalk_help
+        ;;
+            scan)
+            _celerystalk_scan
+        ;;
+            nmap)
+            _celerystalk_nmap
+        ;;
+            rescan)
+            _celerystalk_rescan
+        ;;
+            resume)
+            _celerystalk_resume
+        ;;
+            db)
+            _celerystalk_db
+        ;;
+            subdomains)
+            _celerystalk_subdomains
+        ;;
+            cancel)
+            _celerystalk_cancel
+        ;;
+            workspace)
+            _celerystalk_workspace
+        ;;
+            query)
+            _celerystalk_query
+        ;;
+            report)
+            _celerystalk_report
+        ;;
+            import)
+            _celerystalk_import
+        ;;
+            admin)
+            _celerystalk_admin
+        ;;
+            interactive)
+            _celerystalk_interactive
+        ;;
+        esac
+
+    fi
+}
+
+_celerystalk_pause()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -eq 2 ]; then
+        COMPREPLY=( $( compgen -W '-h --help all' -- $cur) )
+    else
+        case ${COMP_WORDS[2]} in
+            all)
+            _celerystalk_pause_all
+        ;;
+        esac
+
+    fi
+}
+
+_celerystalk_pause_all()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_help()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 2 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_scan()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 2 ]; then
+        COMPREPLY=( $( compgen -W '-t= --noIP -c= -s --simulation -u= -c= -s --simulation -h --help ' -- $cur) )
+    fi
+}
+
+_celerystalk_nmap()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 2 ]; then
+        COMPREPLY=( $( compgen -W '-t= -c= -s --simulation -h --help ' -- $cur) )
+    fi
+}
+
+_celerystalk_rescan()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 2 ]; then
+        COMPREPLY=( $( compgen -W '-t= -c= -s --simulation -h --help ' -- $cur) )
+    fi
+}
+
+_celerystalk_resume()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -eq 2 ]; then
+        COMPREPLY=( $( compgen -fW 'all -h --help ' -- $cur) )
+    else
+        case ${COMP_WORDS[2]} in
+            all)
+            _celerystalk_resume_all
+        ;;
+        esac
+
+    fi
+}
+
+_celerystalk_resume_all()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_db()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -eq 2 ]; then
+        COMPREPLY=( $( compgen -W 'paths tasks workspaces vhosts hosts services export -h --help' -- $cur) )
+    else
+        case ${COMP_WORDS[2]} in
+            paths)
+            _celerystalk_db_paths
+        ;;
+            tasks)
+            _celerystalk_db_tasks
+        ;;
+            workspaces)
+            _celerystalk_db_workspaces
+        ;;
+            vhosts)
+            _celerystalk_db_vhosts
+        ;;
+            hosts)
+            _celerystalk_db_hosts
+        ;;
+            services)
+            _celerystalk_db_services
+        ;;
+            export)
+            _celerystalk_db_export
+        ;;
+        esac
+
+    fi
+}
+
+_celerystalk_db_paths()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_db_tasks()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_db_workspaces()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_db_vhosts()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_db_hosts()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_db_services()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_db_export()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W '-h --help ' -- $cur) )
+    fi
+}
+
+_celerystalk_subdomains()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 2 ]; then
+        COMPREPLY=( $( compgen -W '-d --domains -c= -s --simulation -h --help ' -- $cur) )
+    fi
+}
+
+_celerystalk_cancel()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -eq 2 ]; then
+        COMPREPLY=( $( compgen -W '-h --help all' -- $cur) )
+    else
+        case ${COMP_WORDS[2]} in
+            all)
+            _celerystalk_cancel_all
+        ;;
+        esac
+
+    fi
+}
+
+_celerystalk_cancel_all()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_workspace()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -eq 2 ]; then
+        COMPREPLY=( $( compgen -W '-w= -o= -m= -h --help create switch' -- $cur) )
+    else
+        case ${COMP_WORDS[2]} in
+            create)
+            _celerystalk_workspace_create
+        ;;
+            switch)
+            _celerystalk_workspace_switch
+        ;;
+        esac
+
+    fi
+}
+
+_celerystalk_workspace_create()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_workspace_switch()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_query()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -eq 2 ]; then
+        COMPREPLY=( $( compgen -W '-h --help full watch brief summary' -- $cur) )
+    else
+        case ${COMP_WORDS[2]} in
+            full)
+            _celerystalk_query_full
+        ;;
+            watch)
+            _celerystalk_query_watch
+        ;;
+            brief)
+            _celerystalk_query_brief
+        ;;
+            summary)
+            _celerystalk_query_summary
+        ;;
+        esac
+
+    fi
+}
+
+_celerystalk_query_full()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_query_watch()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_query_brief()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_query_summary()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_report()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 2 ]; then
+        COMPREPLY=( $( compgen -W '-h --help ' -- $cur) )
+    fi
+}
+
+_celerystalk_import()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 2 ]; then
+        COMPREPLY=( $( compgen -fW '-f= -S= -D= -O= -u= -h --help ' -- $cur) )
+    fi
+}
+
+_celerystalk_admin()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -eq 2 ]; then
+        COMPREPLY=( $( compgen -W '-f= -h --help reset start stop backup restore' -- $cur) )
+    else
+        case ${COMP_WORDS[2]} in
+            reset)
+            _celerystalk_admin_reset
+        ;;
+            start)
+            _celerystalk_admin_start
+        ;;
+            stop)
+            _celerystalk_admin_stop
+        ;;
+            backup)
+            _celerystalk_admin_backup
+        ;;
+            restore)
+            _celerystalk_admin_restore
+        ;;
+        esac
+
+    fi
+}
+
+_celerystalk_admin_reset()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_admin_start()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_admin_stop()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_admin_backup()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -W ' ' -- $cur) )
+    fi
+}
+
+_celerystalk_admin_restore()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 3 ]; then
+        COMPREPLY=( $( compgen -fW '-f= ' -- $cur) )
+    fi
+}
+
+_celerystalk_interactive()
+{
+    local cur
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ $COMP_CWORD -ge 2 ]; then
+        COMPREPLY=( $( compgen -W '-h --help ' -- $cur) )
+    fi
+}
+
+complete -o bashdefault -o default -o filenames -F _celerystalk celerystalk
